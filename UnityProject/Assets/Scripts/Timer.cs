@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Timer : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Timer : MonoBehaviour
 
     public Dictionary<string,int> score = new Dictionary<string, int>();
     // level, time, w (win/lose) 
+    public string path = "data.csv";
     void Start()
     {
         timeLeft = initialTime;
@@ -108,7 +110,38 @@ public class Timer : MonoBehaviour
     }
 
     public void leaveGame(){
+        int mean = 0;
+        int max = 0;
+        int bestTime = 100;
+        for (int i = 0; i< scores.Count; i++){
+            mean += scores[i]["level"];
+            if (scores[i]["level"] > max){
+                max  = scores[i]["level"];
+            }
+            if (scores[i]["time"] < bestTime){
+                bestTime = scores[i]["time"];
+            }
+        }
+        mean /= scores.Count;
+
+        ExportToCsv(scores,path);
         Debug.Log(scores);
         //teleport to exit place, show some stats
+    }
+     static void ExportToCsv(List<Dictionary<string, int>> data, string filePath)
+    {
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            // Write the header row (keys of the dictionary)
+            var headers = data[0].Keys;
+            writer.WriteLine(string.Join(",", headers));
+
+            // Write each data row
+            foreach (var row in data)
+            {
+                var values = row.Values;
+                writer.WriteLine(string.Join(",", values));
+            }
+        }
     }
 }
