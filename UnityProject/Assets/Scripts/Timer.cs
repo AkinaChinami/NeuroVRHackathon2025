@@ -10,11 +10,13 @@ public class Timer : MonoBehaviour
     public Transform player;
     public GameObject panel;
     public bool isTimeFinished = false;
-    public int stageNumber = 3;
+    public int stageNumber = 0;
+    GameObject level;
 
     void Start()
     {
         timeLeft = initialTime;
+        playerLocation();
     }
 
     // Update is called once per frame
@@ -30,10 +32,22 @@ public class Timer : MonoBehaviour
     }
 
     public void playerLocation()
-    {
+    {   if (level != null){
+        LevelGen lvlclear = level.GetComponent<LevelGen>();
+        int count = lvlclear.buttons.Count;
+        for (int i = 0; i < count;i++){
+            Destroy(lvlclear.buttons[i]);
+            lvlclear.buttons.Remove(lvlclear.buttons[i]);
+            i--;
+            count --;
+        }
+    }
         getStage();
+        Debug.Log("Stage");
         string levelName = "stage" + stageNumber.ToString();
-        GameObject level = GameObject.Find(levelName);
+        level = GameObject.Find(levelName);
+        LevelGen lvlinit = level.GetComponent<LevelGen>();
+        lvlinit.Initialize();
         player.transform.position = level.transform.position;
         panel.SetActive(false);
         panel.transform.position = player.transform.position + Vector3.forward;
@@ -55,7 +69,12 @@ public class Timer : MonoBehaviour
         }
         else if (!isTimeFinished)
         {
-            stageNumber += 1;
+            if (stageNumber >=3){
+                stageNumber = 3;
+            }
+            else {
+                stageNumber += 1;
+            }
         }
     }
     

@@ -293,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69798081}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bc8bbcb06013c54889b2bcf51320fe9, type: 3}
   m_Name: 
@@ -650,6 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 202857124}
+  - component: {fileID: 202857125}
   m_Layer: 0
   m_Name: stage1
   m_TagString: stage1
@@ -672,6 +673,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &202857125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202857123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e2e78ae3546624794aec93157076cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 6509893219673458086, guid: c5874441941917548ae837add870023d, type: 3}
+  xmax: fffffffffffffffffffffffffffffffffdfffffff6ffffff
+  ymax: 030000000800000003000000080000000100000001000000
+  zmax: edfffffff0ffffffe5ffffffe8ffffffe2fffffffbffffff
+  n: 0
+  score: 0
+  max: 6
+  min: 2
+  buttons: []
+  timerObject: {fileID: 653285139}
+  timerClass: {fileID: 0}
 --- !u!1001 &328684999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1104,7 +1128,7 @@ MonoBehaviour:
   player: {fileID: 177287428}
   panel: {fileID: 415212130}
   isTimeFinished: 0
-  stageNumber: 3
+  stageNumber: 1
 --- !u!4 &653285141
 Transform:
   m_ObjectHideFlags: 0
@@ -1754,6 +1778,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6713470029137982152, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_LineLength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713470029137982152, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_LineBendRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713470029137982152, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_UseDistanceToHitAsMaxLineLength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817704503078235715, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_LineLength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817704503078235715, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_LineBendRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817704503078235715, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_UseDistanceToHitAsMaxLineLength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_Name
       value: XR Interaction Setup
@@ -1781,6 +1829,14 @@ PrefabInstance:
     - target: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032954039820430273, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_MaxRaycastDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146015503685400394, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_MaxRaycastDistance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2121,6 +2177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1601881959}
+  - component: {fileID: 1601881960}
   m_Layer: 0
   m_Name: stage2
   m_TagString: stage2
@@ -2137,12 +2194,35 @@ Transform:
   m_GameObject: {fileID: 1601881958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16, y: 33.7, z: 27.7}
+  m_LocalPosition: {x: -11.999, y: 30.404, z: 21.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1601881960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601881958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e2e78ae3546624794aec93157076cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 6509893219673458086, guid: c5874441941917548ae837add870023d, type: 3}
+  xmax: 00000000000000000100000001000000f9ffffff00000000
+  ymax: 050000001c000000050000001b0000000100000001000000
+  zmax: 1f0000002a0000000c0000000f000000f6ffffff25000000
+  n: 0
+  score: 0
+  max: 6
+  min: 2
+  buttons: []
+  timerObject: {fileID: 653285139}
+  timerClass: {fileID: 0}
 --- !u!4 &1635022220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 654696d2ce904924b8c0be9c582398a8, type: 3}
@@ -2591,6 +2671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957756708}
+  - component: {fileID: 1957756709}
   m_Layer: 0
   m_Name: stage3
   m_TagString: stage3
@@ -2613,6 +2694,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1957756709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957756707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e2e78ae3546624794aec93157076cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 6509893219673458086, guid: c5874441941917548ae837add870023d, type: 3}
+  xmax: 000000000b000000e5fffffff0ffffff0c0000000c000000f3fffffff8ffffff
+  ymax: 1e0000001e0000001e0000001e00000023000000390000002100000034000000
+  zmax: e5fffffff9ffffffe5fffffffafffffff0fffffff3ffffffe0ffffffe0ffffff
+  n: 0
+  score: 0
+  max: 4
+  min: 2
+  buttons: []
+  timerObject: {fileID: 653285139}
+  timerClass: {fileID: 0}
 --- !u!1001 &2007075713
 PrefabInstance:
   m_ObjectHideFlags: 0
