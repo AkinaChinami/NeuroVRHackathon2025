@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,11 @@ public class Timer : MonoBehaviour
     public int stageNumber = 0;
     GameObject level;
 
+    public int iterations =5 ;
+    public List<Dictionary<string,int>> scores = new List<Dictionary<string, int>>();
+
+    public Dictionary<string,int> score = new Dictionary<string, int>();
+    // level, time, w (win/lose) 
     void Start()
     {
         timeLeft = initialTime;
@@ -32,7 +38,8 @@ public class Timer : MonoBehaviour
     }
 
     public void playerLocation()
-    {   if (level != null){
+    {   
+        if (level != null){ // clear elements from last stage
         LevelGen lvlclear = level.GetComponent<LevelGen>();
         int count = lvlclear.buttons.Count;
         for (int i = 0; i < count;i++){
@@ -42,6 +49,14 @@ public class Timer : MonoBehaviour
             count --;
         }
     }
+        score["level"] = stageNumber;
+        score["time"]  = (int) timeLeft;
+        score["win"] = isTimeFinished?0:1;
+        scores.Add(score);
+        iterations -=1;
+        if (iterations <= 0 ){
+            leaveGame();
+        }
         getStage();
         Debug.Log("Stage");
         string levelName = "stage" + stageNumber.ToString();
@@ -50,7 +65,7 @@ public class Timer : MonoBehaviour
         lvlinit.Initialize();
         player.transform.position = level.transform.position;
         panel.SetActive(false);
-        panel.transform.position = player.transform.position + Vector3.forward;
+        panel.transform.position = player.transform.position + new Vector3(0,5,20);
         resetTime();
     }
 
@@ -90,5 +105,10 @@ public class Timer : MonoBehaviour
             timeLeft = initialTime + 5f;
         }
 
+    }
+
+    public void leaveGame(){
+        Debug.Log(scores);
+        //teleport to exit place, show some stats
     }
 }
